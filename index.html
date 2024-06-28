@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Contacto - Cymetria</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Formulario de Contacto</h2>
+      <form id="contactForm" action="#" method="post">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefono">Número de teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required />
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" required />
+
+        <label for="pais">País:</label>
+        <input type="text" id="pais" name="pais" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje"></textarea>
+
+        <input type="submit" value="Enviar" />
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", function (event) {
+        const email = document.getElementById("email").value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          event.preventDefault();
+          alert("Por favor ingrese un correo electrónico válido.");
+        }
+      });
+    </script>
+  </body>
+</html>
